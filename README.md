@@ -81,7 +81,8 @@ def coffe():
         return file.read()
 
 
-def main():
+if __name__ == "__main__":
+
     apikey = os.environ["APIKEY"]
     cordinati = input("Введите ваши кординаты:")
     user_coords = fetch_coordinates(apikey, cordinati)
@@ -92,10 +93,6 @@ def main():
 
     m = do_coffe_map(sorted_coffee_user_coords_5, user_coords)
     m.save("map.html")
-
-
-if __name__ == "__main__":
-    main()
 
     app = Flask(__name__)
     app.add_url_rule("/", "COFFE!", coffe)
